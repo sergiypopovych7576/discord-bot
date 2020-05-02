@@ -8,9 +8,18 @@ export class CommandPrefixFilter extends BaseFilter {
         if (args[0] instanceof Message) {
             const message = args[0] as Message;
 
-            return message.content.charAt(0) === config.commandPrefix;
+            const hasCommandPrefix = message.content.charAt(0) === config.commandPrefix;
+            if(hasCommandPrefix) {
+                this.cutCommandPrefix(message);
+            }
+
+            return hasCommandPrefix;
         }
 
         return true;
+    }
+
+    private cutCommandPrefix(msg: Message): void {
+        msg.content = msg.content.substring(1);
     }
 }
