@@ -1,0 +1,9 @@
+{
+    "tossCoin": {
+        "command": "Подбрось монетку",
+        "params": {
+            "positive": "Орел",
+            "negative": "Решка"
+        }
+    }
+}

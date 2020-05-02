@@ -1,6 +1,8 @@
 import { BotClient } from "./client/bot-client";
-import { CommandPrefixFilter } from "./filters/prefix.filter";
 import { Logger } from "./logger/logger";
+
+import { CommandPrefixFilter } from "./filters";
+import { MessageCommandsExecutor } from "./commands";
 
 const client = new BotClient();
 
@@ -12,7 +14,9 @@ client.subscribe('ready', async () => {
 
 client.subscribe('message', async (msg) => {
     Logger.log(`Resieved message: ${msg.content}`);
-    msg.reply(`${msg.content} ? Гав гав!`);
-})
+
+    MessageCommandsExecutor.process(msg);
+    msg.reply(`Гав`);
+});
 
 client.login();
