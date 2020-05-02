@@ -5,5 +5,12 @@
             "positive": "Орел",
             "negative": "Решка"
         }
+    },
+    "randomList": {
+        "command": "Зарандомь из списка:",
+        "params": {
+            "haveMessage": "Что ж, имеем столько предметов: ",
+            "magicMessage": "Немного магии"
+        }
     }
 }
