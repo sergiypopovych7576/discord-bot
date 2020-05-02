@@ -1,18 +1,18 @@
-import { Client } from 'discord.js';
-import config from './settings.json';
-import { Logger } from './logger';
+import { BotClient } from "./client/bot-client";
+import { CommandPrefixFilter } from "./filters/prefix.filter";
+import { Logger } from "./logger/logger";
 
-const client = new Client();
+const client = new BotClient();
 
-client.on('ready', async () => {
-    Logger.log(`Logged in as: ${client.user?.username}`);
+client.registerFilter(new CommandPrefixFilter());
+
+client.subscribe('ready', async () => {
+    Logger.log(`Logged in as: ${client.name}`);
 });
 
-client.on('message', async (msg) => {
-    if(!msg.author.bot) {
-        Logger.log(`Resieved message: ${msg.content}`);
-        msg.reply('Гафф');
-    }
-});
+client.subscribe('message', async (msg) => {
+    Logger.log(`Resieved message: ${msg.content}`);
+    msg.reply(`${msg.content} ? Гав гав!`);
+})
 
-client.login(config.apiKey);
+client.login();
