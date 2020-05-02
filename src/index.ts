@@ -11,7 +11,7 @@ client.on('ready', async () => {
 client.on('message', async (msg) => {
     if(!msg.author.bot) {
         Logger.log(`Resieved message: ${msg.content}`);
-        msg.reply('Гав - 93');
+        msg.reply('Мяу');
     }
 });
 
