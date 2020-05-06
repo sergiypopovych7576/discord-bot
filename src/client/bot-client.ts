@@ -1,5 +1,5 @@
-import { Client, ClientEvents } from "discord.js"
-import { BaseFilter } from "../filters/base.filter";
+import { Client, ClientEvents } from 'discord.js';
+import { BaseFilter } from '../filters/base.filter';
 
 import config from '../settings.json';
 

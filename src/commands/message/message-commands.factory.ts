@@ -1,11 +1,11 @@
-import { Message } from "discord.js";
-import { BaseCommand } from "../base.command";
+import { Message } from 'discord.js';
+import { BaseCommand } from '../base.command';
 import commandsConfiguration from '../../message-commands.json';
 
 import {
     CoinTossCommand,
     RandomListCommand
-} from "./implemetations";
+} from './implemetations';
 
 export class MessageCommandsFactory {
     public static createCommand(msg: Message): BaseCommand {

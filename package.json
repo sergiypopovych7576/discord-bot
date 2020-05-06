@@ -2,9 +2,10 @@
   "name": "discord-bot",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "bot.js",
   "scripts": {
-    "start": "tsc && nodemon src/index.js"
+    "start": "tsc && nodemon src/bot.js",
+    "lint": "tslint -c tslint.json 'src/**/*.ts'"
   },
   "author": "Popovych Sergiy",
   "license": "ISC",

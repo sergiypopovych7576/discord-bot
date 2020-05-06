@@ -1,8 +1,8 @@
-import { BotClient } from "./client/bot-client";
-import { Logger } from "./logger/logger";
+import { BotClient } from './client/bot-client';
+import { Logger } from './logger/logger';
 
-import { CommandPrefixFilter } from "./filters";
-import { MessageCommandsExecutor } from "./commands";
+import { CommandPrefixFilter } from './filters';
+import { MessageCommandsExecutor } from './commands';
 
 const client = new BotClient();
 

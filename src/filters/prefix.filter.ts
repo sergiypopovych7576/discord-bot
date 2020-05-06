@@ -1,5 +1,5 @@
-import { Message, ClientEvents } from "discord.js";
-import { BaseFilter } from "./base.filter";
+import { Message, ClientEvents } from 'discord.js';
+import { BaseFilter } from './base.filter';
 
 import config from '../settings.json';
 
@@ -9,7 +9,7 @@ export class CommandPrefixFilter extends BaseFilter {
             const message = args[0] as Message;
 
             const hasCommandPrefix = message.content.charAt(0) === config.commandPrefix;
-            if(hasCommandPrefix) {
+            if (hasCommandPrefix) {
                 this.cutCommandPrefix(message);
             }
 

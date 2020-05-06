@@ -1,5 +1,5 @@
-import { BaseCommand } from "../../base.command";
-import { ClientEvents, Message } from "discord.js";
+import { BaseCommand } from '../../base.command';
+import { ClientEvents, Message } from 'discord.js';
 
 import commandsConfiguration from '../../../message-commands.json';
 
