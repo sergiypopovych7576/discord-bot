@@ -2,7 +2,7 @@
 using Discord.Commands;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DiscordBot.Console.Extensions
+namespace Discord.Console.Extensions
 {
     public static class ServicesExtensions
     {

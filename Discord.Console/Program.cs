@@ -4,7 +4,7 @@ using Discord.Appliation.Filters.Implementations;
 using Discord.Appliation.Services;
 using Discord.Appliation.Services.Audio;
 using Discord.Appliation.Services.MusicProviders;
-using DiscordBot.Console.Extensions;
+using Discord.Console.Extensions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;

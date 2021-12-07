@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31815.197
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscordBot.Console", "DiscordBot\DiscordBot.Console.csproj", "{AE8AFCDB-F67A-4C33-87F9-538AAC9BAF95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Discord.Console", "Discord.Console\Discord.Console.csproj", "{AE8AFCDB-F67A-4C33-87F9-538AAC9BAF95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Discord.Appliation", "Discord.Appliation\Discord.Appliation.csproj", "{4386635B-CF7E-41D4-A2A8-433FF646DBD9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Discord.Appliation", "Discord.Appliation\Discord.Appliation.csproj", "{4386635B-CF7E-41D4-A2A8-433FF646DBD9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
