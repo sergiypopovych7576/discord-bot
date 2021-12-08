@@ -13,7 +13,6 @@ namespace Discord.Appliation.Services.Audio
         private readonly IAudioFileService _audioFileService;
         private readonly IMusicProviderService _musicProviderSerivce;
 
-
         public AudioService(IFileService fileService,
             IAudioFileService audioFileService,
             IMusicProviderService musicProviderSerivce)
@@ -131,16 +130,16 @@ namespace Discord.Appliation.Services.Audio
                     IsPlaying = false
                 };
 
-                var path = _fileService.GetCurrentDirectory();
-                var phrase = RandomGreetingPhrase();
-                var filePath = $"{path}{Consts.PhrasesDir}{phrase}.mp3";
-                var audioStream = await _audioFileService.Read(filePath);
-                channelInfo.Queue.Enqueue(new TrackInfo { Stream = audioStream });
+                var randomGreeting = await GetRandomGreetingPhrase();
+                channelInfo.Queue.Enqueue(new TrackInfo { Stream = randomGreeting });
             }
 
+            if(channelInfo.Client.ConnectionState == ConnectionState.Disconnected)
+            {
+                channelInfo.Client = await voiceChannel.ConnectAsync(true);
+            }
 
-            if (channelInfo.VoiceStream == null ||
-                channelInfo.Client.ConnectionState == ConnectionState.Disconnected)
+            if (channelInfo.VoiceStream == null)
             {
                 channelInfo.VoiceStream = channelInfo.Client.CreatePCMStream(AudioApplication.Mixed);
             }
@@ -150,22 +149,20 @@ namespace Discord.Appliation.Services.Audio
             return channelInfo;
         }
 
-        private string RandomGreetingPhrase()
+        private async Task<Stream> GetRandomGreetingPhrase()
         {
+            var path = _fileService.GetCurrentDirectory();
+            var greetingsPath = $"{path}{Consts.PhrasesDir}{Consts.GreetingsDir}";
+
+            var files = _fileService.GetFileNames(greetingsPath);
+
             var random = new Random();
-            var randRes = random.Next(0, 3);
+            var randRes = random.Next(0, files.Length);
+            var phrase = files.ElementAt(randRes);
 
-            var phrase = "здравствуйте";
-            if (randRes == 0)
-            {
-                phrase = "ало";
-            }
-            if (randRes == 1)
-            {
-                phrase = "але";
-            }
+            var audioStream = await _audioFileService.Read(phrase);
 
-            return phrase;
+            return audioStream;
         }
     }
 
